@@ -1,0 +1,39 @@
+<header class="top-bar">
+  <div class="logo">🛒 AdHash E-commerce</div>
+  <div class="mob-logo">AdHash</div>
+
+  <nav class="top-nav">
+    <div class="cart-wrapper" (click)="hideMenu()">
+      <a routerLink="/cart" title="View Cart Items">
+        <img src="assets/images/grocery-white.png" alt="Cart Icon" class="cart-icon">
+        <span class="cart-count" *ngIf="cartCount > 0">{{ cartCount }}</span>
+      </a>
+    </div>
+
+    <!-- 🆕 Toggle Button -->
+    <div class="menu-toggle" (click)="toggleMenu()">
+      <img src="assets/images/menu.png" alt="menu" class="menu-icon">
+    </div>
+
+    <div class="sign-out">
+      <img src="assets/images/logout.png" title="sign-out" alt="">
+    </div>
+  </nav>
+</header>
+
+<!-- 🆕 Mobile Menu (hidden by default) -->
+<div class="mobile-menu" *ngIf="menuOpen">
+  <a routerLink="/products" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: false }"
+    (click)="menuOpen = false">
+    Product List
+  </a>
+
+  <a routerLink="/admin" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: false }"
+    (click)="menuOpen = false">
+    Admin Panel
+  </a>
+
+  <a (click)="signOut()">
+    Sign Out
+  </a>
+</div>

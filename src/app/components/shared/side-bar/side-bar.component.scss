@@ -1,0 +1,39 @@
+.side-bar {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  background-color: var(--bg-color);
+  min-height: 100%; /* Full height for sidebar */
+  width: 250px; /* Adjust as needed */
+  background: linear-gradient(to bottom right, black, grey);
+  // border-right: 2px solid #ddd; /* Optional, add border if needed */
+
+  /* Links styling */
+  a {
+    text-decoration: none;
+    color: #fff;
+    margin: 0.5rem 0;
+    padding: 0.75rem 1rem;
+    border-radius: var(--border-radius);
+    transition: background-color 0.3s, color 0.3s;
+    font-weight: var(--font-regular);
+
+    &:hover {
+      background-color: var(--primary-color);
+      color: #fff;
+    }
+
+    &.active-link {
+      background-color: var(--primary-color);
+      color: #fff;
+      font-weight: var(--font-semibold);
+    }
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 850px) {
+  .side-bar {
+    display: none !important;
+  }
+}

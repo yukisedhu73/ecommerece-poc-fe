@@ -1,0 +1,35 @@
+<div class="product-detail-container">
+    <button class="secondary" (click)="goBack()">Back</button>
+    <div class="product-main">
+        <div class="product-image">
+            <img [src]="getLocalImage(product.imageurl)" [alt]="product.name">
+        </div>
+        <div class="product-info">
+            <h1>{{ product.name }}</h1>
+            <p class="price">₹{{ product.price }}/</p>
+            <p class="short-description">{{ product.description }}</p>
+
+            <div class="add-to-cart">
+                <button class="primary" (click)="onAddToCart()">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="product-extra">
+        <h2>Reviews</h2>
+        <p>⭐⭐⭐⭐⭐ Excellent product! Loved it.</p>
+        <p>⭐⭐⭐⭐ Very good quality, will buy again.</p>
+
+        <h2>More Details</h2>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sit amet
+            diam sed sapien accumsan ullamcorper. Curabitur vulputate nisl eget magna
+            fermentum, vel tincidunt dolor commodo...
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sit amet
+            diam sed sapien accumsan ullamcorper. Curabitur vulputate nisl eget magna
+            fermentum, vel tincidunt dolor commodo...
+        </p>
+    </div>
+</div>

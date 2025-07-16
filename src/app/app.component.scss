@@ -1,0 +1,21 @@
+.layout {
+    display: flex;
+    height: calc(100vh - 64px); /* Full height minus top-bar height */
+    margin-top: 64px; /* Push layout down */
+  }
+  
+  .main-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: var(--spacing);
+    background-color: var(--bg-color);
+    height: calc(100vh - 64px); /* Match main height */  
+    border-top: 1px;
+    border-left: 1px;
+    border-color: var(--secondary-color);
+    // box-shadow: -6px -6px 12px rgba(255, 255, 255, 0.6);
+    // border-top: 2px solid rgba(255, 255, 255, 0.8);
+  // border-left: 2px solid rgba(255, 255, 255, 0.8);
+
+  }
+  

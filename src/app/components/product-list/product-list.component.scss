@@ -1,0 +1,131 @@
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem;
+  margin-bottom: 50px;
+}
+
+.no-products {
+  text-align: center;
+  padding: 50px 20px;
+
+  h2 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+  }
+
+  img {
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+    opacity: 0.8;
+  }
+}
+
+.page-header {
+  text-align: end;
+}
+.product-card {
+  background-color: var(--bg-color);
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  text-align: center;
+  transition: box-shadow 0.3s ease;
+  box-shadow: 0px 2px 21px 14px rgba(243, 238, 238, 0.25);
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  justify-content: space-between; /* Push buttons to bottom */
+  /* Animation when cards enter */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeSlideIn 0.5s ease forwards;
+
+  img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+  }
+
+  h3 {
+    font-weight: 700;
+    margin: 0.5rem 0;
+  }
+
+  .price {
+    font-weight: 700;
+    color: #007bff;
+    margin: 0.5rem 0;
+  }
+
+  .buttons {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+
+    button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+      border-radius: var(--border-radius);
+      min-width: 100px; /* Make sure buttons have enough width */
+    }
+
+    .cart-btn {
+      background-color: #f8f9fa; /* light background */
+      border: 1px solid #ddd;
+    }
+
+    .cart-btn img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+/* Animation Keyframes */
+@keyframes fadeSlideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.delete-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+
+  .modal-content {
+    background: #2e2e2e;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 500px;
+  }
+
+  button {
+    margin: 10px;
+    padding: 10px;
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 1080px) {
+  .product-card  img{
+    height: auto !important;
+    object-fit: contain;
+  }
+}

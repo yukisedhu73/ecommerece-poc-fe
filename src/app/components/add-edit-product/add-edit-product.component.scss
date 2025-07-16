@@ -1,0 +1,47 @@
+form {
+  max-width: 500px;
+  margin: 3rem auto; /* Center horizontally */
+  padding: var(--spacing);
+  background-color: var(--bg-color);
+  border-radius: var(--border-radius);
+  transition: box-shadow 0.3s ease;
+  box-shadow: 0px 2px 21px 14px rgba(243, 238, 238, 0.25);
+}
+
+div {
+  margin-bottom: var(--spacing);
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: 900;
+  margin-bottom: 0.5rem;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="file"],
+textarea {
+  font-size: 1rem;
+  background-color: var(--bg-color);
+  color: var(--secondary-color);
+}
+
+button {
+  margin-right: 1em;
+}
+
+div > div {
+  color: var(--primary-color);
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+/* Responsive for Mobile */
+@media (max-width: 600px) {
+  form {
+    margin: 1.5rem;
+    padding: var(--spacing);
+  }
+}

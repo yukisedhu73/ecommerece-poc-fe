@@ -1,0 +1,125 @@
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  // background-color: var(--bg-color);
+  background: linear-gradient(to bottom right, black, grey);
+  color: #fff;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 64px;
+  z-index: 10;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.mob-logo {
+  font-size: 1rem;
+  font-weight: bold;
+  display: none;
+}
+
+.top-nav {
+  display: flex;
+  align-items: center;
+}
+
+.top-nav a {
+  position: relative; /* important for badge */
+  color: #fff;
+  text-decoration: none;
+  margin-right: 1rem;
+}
+
+.cart-wrapper {
+  position: relative;
+}
+
+.cart-icon {
+  width: 30px;
+  height: 30px;
+}
+
+.cart-count {
+  position: absolute;
+  top: -19px;
+  right: -8px;
+  background-color: red;
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+  padding: 2px 8px;
+  border-radius: 50%;
+}
+.menu-toggle{
+  display: none;
+}
+.sign-out img,
+.menu-toggle img {
+  width: 27px;
+  height: 27px;
+  cursor: pointer;
+}
+
+/* 🆕 Improved Mobile Menu */
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  background: linear-gradient(to bottom right, black, grey);
+  padding: 2rem 1rem;
+  position: fixed; /* changed from absolute */
+  top: 64px; /* below the top-bar */
+  left: 0; /* start from left */
+  width: 100%;
+  height: calc(100vh - 64px); /* full height minus top bar */
+  z-index: 99;
+  overflow-y: auto;
+}
+
+.mobile-menu a {
+  text-decoration: none;
+  color: #fff;
+  margin: 1rem 0;
+  font-weight: var(--font-regular);
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  transition: background-color 0.3s;
+  width: 100%;
+}
+
+.mobile-menu a:hover,
+.mobile-menu a.active-link {
+  background-color: var(--primary-color);
+  color: #fff;
+  border-radius: var(--border-radius);
+}
+
+/* 🆕 Media Query Update */
+@media (max-width: 850px) {
+  .mobile-menu {
+    display: flex !important;
+  }
+
+  .menu-toggle {
+    display: block !important;
+  }
+
+  .sign-out {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    display: none;
+  }
+  .mob-logo {
+    display: block;
+  }
+}

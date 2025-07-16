@@ -1,0 +1,127 @@
+:root {
+  --bg-color: #000000ff;
+  --primary-color: #ff4533;
+  --secondary-color: #ffffff;
+  --fade-color: #74231b;
+  --font-family: "Poppins", sans-serif;
+  --border-radius: 8px;
+  --spacing: 1rem;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color);
+  color: var(--secondary-color);
+}
+
+/* Buttons */
+button {
+  padding: 0.5rem 1.2rem;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease, transform 0.2s ease;
+}
+
+/* Primary button */
+button.primary {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+
+button.primary:hover {
+  background-color: #e03e2d; /* slightly darker on hover */
+  transform: translateY(-4px); /* lift up a little */
+  box-shadow: 0 4px 12px rgba(255, 69, 51, 0.4);
+}
+
+/* Secondary button */
+button.secondary {
+  background-color: var(--secondary-color);
+  color: black;
+}
+
+button.secondary:hover {
+  background-color: #e0e0e0; /* slight grey on hover */
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Danger button stays same */
+button.danger {
+  background-color: var(--danger-color);
+  color: #fff;
+}
+
+button.danger:hover {
+  opacity: 0.9;
+}
+
+/* Common hover for all buttons */
+button:hover {
+  opacity: 0.90;
+}
+
+/* Optional: Small press effect */
+button:active {
+  transform: scale(0.97);
+}
+
+
+/* Font Classes */
+.font-light {
+  font-weight: 300;
+}
+.font-regular {
+  font-weight: 400;
+}
+.font-medium {
+  font-weight: 500;
+}
+.font-semibold {
+  font-weight: 600;
+}
+.font-bold {
+  font-weight: 700;
+}
+
+/* Forms */
+input,
+select,
+textarea {
+  padding: 0.6rem 1rem;
+  border-radius: var(--border-radius);
+  border: 1px solid #ccc;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Utility spacing */
+.mt-1 {
+  margin-top: 0.5rem;
+}
+.mt-2 {
+  margin-top: 1rem;
+}
+.mb-1 {
+  margin-bottom: 0.5rem;
+}
+.mb-2 {
+  margin-bottom: 1rem;
+}
+
+/* Layout helpers */
+.container {
+  padding: var(--spacing);
+  max-width: 1200px;
+  margin: auto;
+}

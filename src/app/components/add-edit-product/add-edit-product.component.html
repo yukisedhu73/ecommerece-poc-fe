@@ -1,0 +1,36 @@
+<h2>{{ isEditMode ? 'Update Product' : 'Add Product' }}</h2>
+<form [formGroup]="productForm" (ngSubmit)="submit()">
+  <div>
+    <label>Name:</label>
+    <input formControlName="name" type="text" />
+    <div *ngIf="productForm.get('name')?.invalid && productForm.get('name')?.touched">Name is required (max 100
+      characters).</div>
+  </div>
+
+  <div>
+    <label>Description:</label>
+    <textarea formControlName="description"></textarea>
+    <div *ngIf="productForm.get('description')?.invalid && productForm.get('description')?.touched">Description is
+      required (max 250 characters).</div>
+  </div>
+
+  <div>
+    <label>Price:</label>
+    <input formControlName="price" type="number" />
+    <div *ngIf="productForm.get('price')?.invalid && productForm.get('price')?.touched">Price is required.</div>
+  </div>
+
+  <div *ngIf="productForm.get('imageFile')?.value">
+    <label>Current Image:</label>
+    <img [src]="productForm.get('imageFile')?.value" title="Choose Another file to replace the image"
+      alt="Product Image" width="150" />
+  </div>
+
+  <div>
+    <label>Upload Image:</label>
+    <input type="file" (change)="onFileChange($event)" accept="image/*" />
+  </div>
+
+  <button class="primary" type="submit" [disabled]="productForm.invalid">{{isEditMode?"Update":"Save"}}</button>
+  <button class="secondary" (click)="cancel()">Cancel</button>
+</form>

@@ -1,0 +1,18 @@
+<div class="pagination-container">
+    <div class="pagination-buttons">
+        <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
+
+        <button *ngFor="let page of totalPages" [class.active]="page === currentPage" (click)="onPageSelect(page)">
+            {{ page }}
+        </button>
+
+        <button (click)="nextPage()"
+            [disabled]="currentPage === totalPages.length || totalPages.length === 0">Next</button>
+    </div>
+
+    <div class="page-size-selector">
+        <select [value]="itemsPerPage" (change)="onPageSizeChange($event)">
+            <option *ngFor="let size of [5, 10, 15]" [value]="size">{{ size }}</option>
+        </select>
+    </div>
+</div>

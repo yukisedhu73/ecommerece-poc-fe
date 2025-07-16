@@ -1,0 +1,44 @@
+<div class="page-header">
+  <button class="primary" *ngIf="isAdmin" (click)="navigateToAdd()">Add Products +</button>
+</div>
+
+<div *ngIf="!paginatedProducts?.length" class="no-products">
+  <h2>No Products Available</h2>
+  <img src="assets/images/no-data-img.png" alt="No data" />
+</div>
+
+<div class="product-list">
+  <div class="product-card" *ngFor="let product of paginatedProducts;let i = index"
+    [style.animationDelay]="i * 100 + 'ms'">
+    <img [src]="getLocalImage(product.imageurl)" alt="{{ product.name }}">
+    <h3>{{ product.name }}</h3>
+    <p>{{ product.description }}</p>
+    <p class="price">₹{{ product.price }}</p>
+
+    <div class="buttons">
+      <button class="primary" *ngIf="!isAdmin" (click)="viewDetails(product.id)">View Details</button>
+      <button class="secondary cart-btn" title="Add to Cart" *ngIf="!isAdmin" (click)="addToCart(product)">
+        <img src="assets/images/grocery-store.png" alt="cart image" width="24" height="24">
+      </button>
+
+      <button class="secondary" *ngIf="isAdmin" (click)="navigateToUpdate(product.id)">Update</button>
+      <button class="primary" *ngIf="isAdmin" (click)="confirmDelete(product)">Delete</button>
+    </div>
+  </div>
+</div>
+
+<!-- Delete Confirmation Modal -->
+<div class="delete-modal" *ngIf="showDeleteModal">
+  <div class="modal-content">
+    <h2>Confirm Deletion</h2>
+    <p>Are you sure you want to delete the product "{{ selectedProduct?.name }}"?</p>
+    <button class="secondary" (click)="cancelDelete()">Cancel</button>
+    <button class="primary" (click)="deleteProduct()">Confirm</button>
+  </div>
+</div>
+
+<div *ngIf="paginatedProducts?.length">
+  <app-pagination [totalPages]="totalPages" [currentPage]="currentPage" [itemsPerPage]="itemsPerPage"
+    (pageSelect)="onPageSelect($event)" (pageSizeChange)="onPageSizeChange($event)">
+  </app-pagination>
+</div>
