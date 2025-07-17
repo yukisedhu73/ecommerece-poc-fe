@@ -14,16 +14,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'adhash-ecommerce-fe' title`, () => {
+  it(`should have the 'ecommerece-poc-fe' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('adhash-ecommerce-fe');
+    expect(app.title).toEqual('ecommerece-poc-fe');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, adhash-ecommerce-fe');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, ecommerece-poc-fe');
   });
 });

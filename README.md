@@ -1,8 +1,8 @@
-# AdHash E-commerce Frontend 🛒
+#E-commerce Frontend 🛒
 
 ## frontend readme
 
-Welcome to **AdHash E-commerce** – a fully responsive e-commerce web application built with **Angular** and **pure CSS media queries**!
+Welcome to **E-commerce** – a fully responsive e-commerce web application built with **Angular** and **pure CSS media queries**!
 
 ## ✨ Features
 
@@ -25,8 +25,8 @@ Welcome to **AdHash E-commerce** – a fully responsive e-commerce web applicati
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/yukisedhu73/adhash-ecommerce-web.git
-cd adhash-ecommerce-web/frontend/adhash-ecommerce-fe
+git clone https://github.com/yukisedhu73/ecommerece-poc-fe.git
+cd ecommerece-poc-fe
 ```
 
 ### 2. Install dependencies:

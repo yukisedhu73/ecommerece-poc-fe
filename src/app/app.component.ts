@@ -14,6 +14,6 @@ import { CommonModule } from '@angular/common';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'adhash-ecommerce-fe';
+  title = 'ecommerece-poc-fe';
   constructor(public loadingService: LoadingService) { }
 }

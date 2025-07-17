@@ -8,7 +8,7 @@ import { AddProductModel, Product } from '../models/product.model';
 })
 export class ProductService {
 
-  private apiUrl = 'http://localhost:5000/api/products';
+  private apiUrl = 'https://ecommerece-poc-be.onrender.com/api/products';
 
   constructor(private http: HttpClient) { }
 
