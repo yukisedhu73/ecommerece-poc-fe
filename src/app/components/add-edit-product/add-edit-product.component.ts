@@ -32,7 +32,7 @@ export class AddEditProductComponent {
       name: ['', [Validators.required, Validators.maxLength(100)]],
       description: ['', [Validators.required, Validators.maxLength(250)]],
       price: ['', [Validators.required]],
-      imageFile: [null, Validators.required],
+      imageFile: ['', [Validators.required]],
     });
 
     this.route.paramMap.subscribe(params => {
@@ -51,14 +51,14 @@ export class AddEditProductComponent {
 
   loadProduct(id: number) {
     this.productService.getProductById(id).subscribe(product => {
-      const parts = product.imageurl.split('/');
-      const fileName = parts[parts.length - 1];
+      // const parts = product.imageurl.split('/');
+      // const fileName = parts[parts.length - 1];
 
       this.productForm.patchValue({
         name: product.name,
         description: product.description,
         price: product.price,
-        imageFile: `assets/product-images/${fileName}.jpeg`,
+        imageFile: product?.imageurl,
       });
     });
   }
@@ -69,7 +69,6 @@ export class AddEditProductComponent {
     if (file) {
       const reader = new FileReader();
       reader.onload = () => {
-        // Save temporary preview URL
         this.productForm.patchValue({
           imageFile: reader.result as string,
         });
@@ -87,29 +86,29 @@ export class AddEditProductComponent {
     }
 
     const formData = this.productForm.value;
-    let imageUrl = '';
 
-    if (this.selectedFile) {
-      // If user selected new file, construct URL from filename
-      const filename = this.selectedFile.name.split('.')[0];
-      imageUrl = this.baseImageUrl + filename;
-    } else if (typeof formData.imageFile === 'string') {
-      if (formData.imageFile.startsWith('assets/')) {
-        // Image is local path from loadProduct -> fix it to baseImageUrl
-        const parts = formData.imageFile.split('/');
-        const filename = parts[parts.length - 1].split('.')[0];
-        imageUrl = this.baseImageUrl + filename;
-      } else {
-        // Otherwise assume it's already a correct URL (rare)
-        imageUrl = formData.imageFile;
-      }
-    }
+    // let imageUrl = '';
+    // if (this.selectedFile) {
+    //   // If user selected new file, construct URL from filename
+    //   const filename = this.selectedFile.name.split('.')[0];
+    //   imageUrl = this.baseImageUrl + filename;
+    // } else if (typeof formData.imageFile === 'string') {
+    //   if (formData.imageFile.startsWith('assets/')) {
+    //     // Image is local path from loadProduct -> fix it to baseImageUrl
+    //     const parts = formData.imageFile.split('/');
+    //     const filename = parts[parts.length - 1].split('.')[0];
+    //     imageUrl = this.baseImageUrl + filename;
+    //   } else {
+    //     // Otherwise assume it's already a correct URL (rare)
+    //     imageUrl = formData.imageFile;
+    //   }
+    // }
 
     const payload = {
       name: formData.name,
       description: formData.description,
       price: Number(formData.price),
-      imageUrl: imageUrl,
+      imageUrl: formData.imageFile,
     };
 
     if (this.productId) {

@@ -2,7 +2,8 @@
     <button class="secondary" (click)="goBack()">Back</button>
     <div class="product-main">
         <div class="product-image">
-            <img [src]="getLocalImage(product.imageurl)" [alt]="product.name">
+            <!-- <img [src]="getLocalImage(product.imageurl)" [alt]="product.name"> -->
+            <img [src]="product.imageurl" alt="{{ product.name }}">
         </div>
         <div class="product-info">
             <h1>{{ product.name }}</h1>

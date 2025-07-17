@@ -20,7 +20,14 @@
     <div *ngIf="productForm.get('price')?.invalid && productForm.get('price')?.touched">Price is required.</div>
   </div>
 
-  <div *ngIf="productForm.get('imageFile')?.value">
+  <div>
+    <label>Product Image (Public URL):</label>
+    <input formControlName="imageFile" type="text" />
+    <div *ngIf="productForm.get('imageFile')?.invalid && productForm.get('imageFile')?.touched">Image URL is required.
+    </div>
+  </div>
+
+  <!-- <div *ngIf="productForm.get('imageFile')?.value">
     <label>Current Image:</label>
     <img [src]="productForm.get('imageFile')?.value" title="Choose Another file to replace the image"
       alt="Product Image" width="150" />
@@ -29,7 +36,7 @@
   <div>
     <label>Upload Image:</label>
     <input type="file" (change)="onFileChange($event)" accept="image/*" />
-  </div>
+  </div> -->
 
   <button class="primary" type="submit" [disabled]="productForm.invalid">{{isEditMode?"Update":"Save"}}</button>
   <button class="secondary" (click)="cancel()">Cancel</button>
